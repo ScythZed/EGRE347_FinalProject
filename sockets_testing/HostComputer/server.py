@@ -20,7 +20,7 @@ print("Connected")
 
 while True:
     data = conn.recv(1024)
-    print("I sent a message in response to: ", data)
+    print("I sent a message in response to: ", data.decode())
 
 
     # Process Data
