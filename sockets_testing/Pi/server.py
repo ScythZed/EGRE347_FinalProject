@@ -1,6 +1,7 @@
 import socket
+import SNx4xx
 
-HOST = '192.168.1.1' # My computer's IP
+HOST = '192.168.1.23' # My computer's IP
 PORT = 12345
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print("Socket Created!")
@@ -26,6 +27,8 @@ while True:
     # Process Data
     if data == bytes("Hello", 'utf-8'):
         reply = "Hello Client!"
+    elif data == bytes("menu", 'utf-8'):
+        reply = "Choose your options..."
     elif data == bytes("quit", 'utf-8'):
         conn.send(bytes('Terminating','utf-8'))
         break
