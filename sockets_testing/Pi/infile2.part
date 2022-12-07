@@ -1,0 +1,31 @@
+SN74LS00DB
+Quadruple 2-input NAND gate
+The SNx4xx00 devices contain four independent, 2-input NAND gates. The devices perform the Boolean function Y = not(A.B) or Y = not(A) + not(B) in positive logic.
+0
+2
+5.0 3.3 2.5 0.0 
+SN74LS00J
+Quadruple 2-input NAND gate
+The SNx4xx00 devices contain four independent, 2-input NAND gates. The devices perform the Boolean function Y = not(A.B) or Y = not(A) + not(B) in positive logic.
+0
+2
+5.0 3.3 2.5 0.0 
+SN74LS00FK
+Quadruple 2-input NAND gate
+The SNx4xx00 devices contain four independent, 2-input NAND gates. The devices perform the Boolean function Y = not(A.B) or Y = not(A) + not(B) in positive logic.
+0
+2
+5.0 3.3 2.5 0.0 
+SN74LS02DB
+Quadruple 2-input NOR gate
+The SNx4xx02 devices contain four independent, 2-input NOR gates. The devices perform the Boolean function Y = not(A+B) or Y = not(A).not(B) in positive logic.
+0
+2
+5.0 3.3 2.5 0.0 
+SN74LS02J
+Quadruple 2-input NOR gate
+The SNx4xx02 devices contain four independent, 2-input NOR gates. The devices perform the Boolean function Y = not(A+B) or Y = not(A) . not(B) in positive logic.
+1
+1
+5.0 3.3 2.5 1.8 
+
