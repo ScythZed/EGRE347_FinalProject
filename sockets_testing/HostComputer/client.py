@@ -29,6 +29,9 @@ while True:
     #Menu 2 - Print a specific part number
     if(command.decode() == '2'):
         part_num = ""
+        part_num = bytes(input("Enter full part number to find: "), 'utf-8')
+        s.send(part_num)
+
 
     # Menu 3 - Add a part to the list
     if(command.decode() == '3'):
