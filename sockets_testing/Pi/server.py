@@ -56,22 +56,7 @@ while True:
     temp_loop = True
     # Process Data
     if data.decode() == '1':    # Print the part list
-        reply = "Part Number\n"
-        conn.send(bytes(reply,'utf-8'))
-
-        reply = "Part Name\n"
-        conn.send(bytes(reply,'utf-8'))
-
-        reply = "Part family\n"
-        conn.send(bytes(reply,'utf-8'))
-
-        reply = "Part package\n"
-        conn.send(bytes(reply,'utf-8'))
-
-        reply = "Part Vcc\n"
-        conn.send(bytes(reply,'utf-8'))
-
-        reply = "done"
+        reply = "Part Number\nPart Name\nPart family\nPart package\nPart Vcc\ndone"
         conn.send(bytes(reply,'utf-8'))
     elif data.decode() == '2':  # Print a specific part number
         reply = "print part"
