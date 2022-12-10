@@ -26,18 +26,8 @@ while True:
     command = bytes(input("				Choice ?"), 'utf-8')
     s.send(command)
 
-    # Menu 1 (Working, but a bit finicky. Sometimes only prints out some of the data.)
-    if(command.decode() == '1'):
-        Looping = True  # Bool for looping until all are printed
-        while Looping:
-            time.sleep(1)   # added a time delay to see if it will fix^
-            reply = s.recv(1024).decode()
-            print(reply)
-            if(reply == "done"):
-                s.send(bytes("done",'utf-8'))
-                Looping = False
-        
-        break
+    #Menu 1 - Print list of parts
+
 
     # Menu 3 - Add a part to the list
     if(command.decode() == '3'):
@@ -76,7 +66,7 @@ while True:
         print(add_object)
 
 
-    reply = s.recv(1024)
+    reply = s.recv(4096)
     if reply.decode() == 'Terminating':
         break
     print(reply.decode())

@@ -56,7 +56,38 @@ while True:
     temp_loop = True
     # Process Data
     if data.decode() == '1':    # Print the part list
-        reply = "Part Number\nPart Name\nPart family\nPart package\nPart Vcc\ndone"
+        attempt = ""
+        for i in range(len(parts_list)):
+            attempt += "--------------------------------------------------------------------------------\n"
+            attempt += str(parts_list[i].part_number) + " " + str(parts_list[i].part_name) + "\n"
+            attempt += str(parts_list[i].description) + "\n"
+
+            if (parts_list[i].family == 0): attempt += "TTL" + "\n"
+            elif (parts_list[i].family == 1): attempt += "BiCMOS" + "\n"
+            elif (parts_list[i].family == 2): attempt += "CMOS" + "\n"
+            else: print("ERROR ",end="")
+
+            if (parts_list[i].package == 0): attempt += "SSOP"  + "\n"
+            elif (parts_list[i].package == 1): attempt += "SOIC " + "\n"
+            elif (parts_list[i].package == 2): attempt += "DIP" + "\n"
+            elif (parts_list[i].package == 3): attempt += "CFP"  + "\n"
+            elif (parts_list[i].package == 4): attempt += "LCCC" + "\n"
+            elif (parts_list[i].package == 5): attempt += "SO" + "\n"
+            else: print("ERROR")
+
+            for i in range(4):
+                if(parts_list[i].vcc[i] != 0.0):
+                    attempt += str(parts_list[i].vcc[i]) + "V"
+                    if(i == 0 and (parts_list[i].vcc[1] != 0.0 or parts_list[i].vcc[2] != 0.0 or parts_list[i].vcc[3] !=0.0)):
+                        attempt += ", "
+                    if(i == 1 and (parts_list[i].vcc[2] != 0.0 or parts_list[i].vcc[3] !=0.0)):
+                        attempt += ", "
+                    if(i == 2 and (parts_list[i].vcc[3] !=0.0)):
+                        attempt += ", "
+            
+            attempt += "\n"
+        
+        reply = attempt
         conn.send(bytes(reply,'utf-8'))
     elif data.decode() == '2':  # Print a specific part number
         reply = "print part"
