@@ -136,8 +136,19 @@ while True:
             conn.send(bytes(reply,'utf-8'))
             continue
     elif data.decode() == '3':  # Add a part to the list
-        reply = "add part"
-        conn.send(bytes(reply,'utf-8'))
+        new_part = ""
+        while(new_part == ""):
+            new_part = conn.recv(1024).decode()
+        part = SNx4xx.SNx4xx()
+        new_part = new_part.split("\n")
+        part.setPartNumber(new_part[0])
+        part.setPartName(new_part[1])
+        part.setDescription(new_part[2])
+        part.setFamily(new_part[3])
+        part.setPackage(new_part[4])
+        part.setVcc(new_part[5])
+        parts_list.append(part)
+        #reply = "Part added!"
     elif data.decode() == '4':  # Sort the list by part number
         parts_list.sort(key=lambda x: x.part_number)
         reply = "List is sorted!"

@@ -33,13 +33,14 @@ while True:
         s.send(part_num)
 
 
-    # Menu 3 - Add a part to the list
+        # Menu 3 - Add a part to the list
     if(command.decode() == '3'):
         add_object = ""
         # Intakes Part Number and Name
         add_object += input("Enter Part Number (ex. SN7415N): ") + "\n"
         add_object += input("Enter Part Name (ex. Triple 3 Input NAND gate): ") + "\n"
-        
+        add_object += input("Enter Part Description: ") + "\n"
+
         # Intakes family and checks if input is valid
         temp_family = input("Enter Part Family (i.e., TTL, BiCMOS, CMOS): ")
         if(temp_family in FAMILY_ASSERT):   # Asserts
@@ -67,7 +68,8 @@ while True:
             print("\nPlease enter Vcc numbers in correct format.\n")
             continue
 
-        print(add_object)
+        s.send(bytes(add_object,'utf-8'))
+        continue
 
 
     reply = s.recv(4096)
