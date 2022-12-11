@@ -26,8 +26,9 @@ while True:
     command = bytes(input("				Choice ?"), 'utf-8')
     s.send(command)
 
-    #Menu 1 - Print list of parts
-
+    #Menu 2 - Print a specific part number
+    if(command.decode() == '2'):
+        part_num = ""
 
     # Menu 3 - Add a part to the list
     if(command.decode() == '3'):
