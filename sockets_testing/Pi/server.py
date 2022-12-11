@@ -7,6 +7,7 @@ PORT = 12345
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print("Socket Created!")
 
+#functions test
 
 # Tries to bind with socket.
 try:
@@ -96,11 +97,18 @@ while True:
     elif data.decode() == '3':  # Add a part to the list
         new_part = ""
         while(new_part == ""):
-            new_part = s.recv(1024).decode()
-            print("Looping")
-        print(new_part)
-        # reply = "add part"
-        # conn.send(bytes(reply,'utf-8'))
+            new_part = conn.recv(1024).decode()
+        part = SNx4xx.SNx4xx()
+        new_part = new_part.split("\n")
+        part.setPartNumber(new_part[0])
+        part.setPartName(new_part[1])
+        part.setDescription(new_part[2])
+        part.setFamily(new_part[3])
+        part.setPackage(new_part[4])
+        part.setVcc(new_part[5])
+        parts_list.append(part)
+
+
     elif data.decode() == '4':  # Sort the list by part number
         reply = "sort list"
         conn.send(bytes(reply,'utf-8'))
