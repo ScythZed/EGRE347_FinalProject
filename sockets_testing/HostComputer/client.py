@@ -1,6 +1,8 @@
 import socket
 import time
 
+#test
+
 # Ip and Host info and creates socket
 HOST = '192.168.1.23'
 PORT = 12345
