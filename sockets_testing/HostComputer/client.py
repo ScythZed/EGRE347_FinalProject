@@ -1,8 +1,6 @@
 import socket
 import time
 
-#test
-
 # Ip and Host info and creates socket
 HOST = '192.168.1.23'
 PORT = 12345
@@ -28,7 +26,11 @@ while True:
     command = bytes(input("				Choice ?"), 'utf-8')
     s.send(command)
 
-    #Menu 1 - Print list of parts
+    #Menu 2 - Print a specific part number
+    if(command.decode() == '2'):
+        part_num = ""
+        part_num = bytes(input("Enter full part number to find: "), 'utf-8')
+        s.send(part_num)
 
 
     # Menu 3 - Add a part to the list
