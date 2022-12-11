@@ -1,8 +1,6 @@
 import socket
 import time
 
-#test
-
 # Ip and Host info and creates socket
 HOST = '192.168.1.23'
 PORT = 12345
@@ -65,7 +63,8 @@ while True:
             print("\nPlease enter Vcc numbers in correct format.\n")
             continue
 
-        print(add_object)
+        # print(add_object)
+        s.send(bytes(add_object,'utf-8'))
 
 
     reply = s.recv(4096)
